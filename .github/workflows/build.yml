@@ -16,7 +16,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt update
-          sudo apt install -y git zip unzip openjdk-17-jdk autoconf libtool pkg-config cmake automake libtool-bin build-essential curl
+          sudo apt install -y git zip unzip openjdk-17-jdk autoconf automake libtool libtool-bin libltdl-dev pkg-config cmake build-essential curl
 
       - name: Install buildozer
         run: |

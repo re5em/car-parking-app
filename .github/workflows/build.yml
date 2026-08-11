@@ -17,7 +17,7 @@ jobs:
         run: |
           mkdir -p /github/home/.buildozer/android/platform/android-sdk/cmdline-tools
           cd /github/home/.buildozer/android/platform/android-sdk/cmdline-tools
-          wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O tools.zip
+          curl -sSL https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -o tools.zip
           unzip -q tools.zip
           mv cmdline-tools latest
           rm tools.zip

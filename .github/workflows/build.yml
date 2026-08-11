@@ -10,6 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install base tools
+        run: |
+          apt-get update
+          apt-get install -y curl unzip wget
+
       - name: Disable root warning
         run: sed -i 's/^warn_on_root.*/warn_on_root = 0/' buildozer.spec
 

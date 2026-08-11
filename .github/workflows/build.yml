@@ -13,6 +13,14 @@ jobs:
       - name: Disable root warning
         run: sed -i 's/^warn_on_root.*/warn_on_root = 0/' buildozer.spec
 
+      - name: Accept Android SDK licenses
+        run: |
+          mkdir -p /github/home/.buildozer/android/platform/android-sdk/licenses
+          echo "24333f8a63b6825ea9c5514f83c2829b004d1fee" > /github/home/.buildozer/android/platform/android-sdk/licenses/android-sdk-license
+          echo "d56f5187479451eabf01fb78af6dfcb131a6481e" >> /github/home/.buildozer/android/platform/android-sdk/licenses/android-sdk-license
+          echo "84831b9409646a918e30573bab4c9c91346d8abd" > /github/home/.buildozer/android/platform/android-sdk/licenses/android-sdk-preview-license
+          yes | sdkmanager --licenses || true
+
       - name: Build APK
         run: buildozer android debug
 
